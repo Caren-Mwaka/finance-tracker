@@ -20,7 +20,7 @@ export default function Login() {
     try {
       const res = await api.post("/auth/login", form);
 
-      login(res.data.token);      // update global auth state
+      login(res.data.token, res.data.user);     // update global auth state
       navigate("/dashboard");     // go to dashboard
     } catch (err) {
       alert(err.response?.data?.message || "Error");
